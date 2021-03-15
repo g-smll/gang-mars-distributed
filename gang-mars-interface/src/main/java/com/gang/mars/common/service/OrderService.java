@@ -11,4 +11,7 @@ public interface OrderService {
 
     //创建订单
     OrderDTO create();
+
+    //负载均衡测试
+    String loadBalanceTest();
 }

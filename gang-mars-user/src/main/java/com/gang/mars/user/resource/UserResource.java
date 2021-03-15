@@ -12,11 +12,12 @@ import org.springframework.web.bind.annotation.RestController;
  */
 @RestController
 public class UserResource {
-    @DubboReference(version = "${rpc.service.version}")
-    OrderService orderService;
+    /*@DubboReference(version = "${rpc.service.version}")
+    OrderService orderService;*/
 
     @GetMapping("/user/getOrder")
     public String getOrder(){
-        return "order data ->"+orderService.create();
+        //return "order data ->"+orderService.create();
+        return null;
     }
 }

@@ -1,5 +1,5 @@
 server:
-  port: 9080
+  port: 90800
 nacos:
   server-address: 127.0.0.1
   port: 8848
@@ -8,12 +8,14 @@ nacos:
 dubbo:
   protocol:
     name: dubbo
-    port: -1
+    port: 20882
   registry:
     address: nacos://${nacos.server-address}:${nacos.port}/?username=${nacos.username}&password=${nacos.password}
+  application:
+    name: gang-mars-order-dubbo-application
 rpc:
   service:
     version: 1.0.1
 spring:
   application:
-    name: gang-mars-order-provider
+    name: gang-mars-order-spring-application
