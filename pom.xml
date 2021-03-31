@@ -9,6 +9,7 @@
         <module>gang-mars-product</module>
         <module>gang-mars-nacos</module>
         <module>gang-mars-interface</module>
+        <module>gang-mars-rabbitmq</module>
     </modules>
     <parent>
         <groupId>org.springframework.boot</groupId>
