@@ -14,10 +14,10 @@ import java.util.UUID;
  * @time 2021/3/31 8:39
  */
 @Service
-public class OrderMqService {
+public class OrderMqProduceService {
     private final RabbitTemplate rabbitTemplate;
 
-    public OrderMqService(RabbitTemplate rabbitTemplate) {
+    public OrderMqProduceService(RabbitTemplate rabbitTemplate) {
         this.rabbitTemplate = rabbitTemplate;
     }
 

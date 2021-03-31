@@ -1,7 +1,8 @@
 package com.gang.mars.mq;
 
-import com.gang.mars.mq.service.OrderMqService;
+import com.gang.mars.mq.service.OrderMqProduceService;
 import org.junit.jupiter.api.Test;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 
 /**
@@ -12,10 +13,11 @@ import org.springframework.boot.test.context.SpringBootTest;
 @SpringBootTest
 public class MqTesting {
 
-    private OrderMqService orderMqService;
+    @Autowired
+    private OrderMqProduceService orderMqService;
 
     @Test
     void sendMessage(){
-        System.out.println("send message...");
+        orderMqService.mockOrder();
     }
 }
