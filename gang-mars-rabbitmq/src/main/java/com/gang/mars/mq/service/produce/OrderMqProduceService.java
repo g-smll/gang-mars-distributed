@@ -1,9 +1,8 @@
-package com.gang.mars.mq.service;
+package com.gang.mars.mq.service.produce;
 
 import org.springframework.amqp.AmqpException;
 import org.springframework.amqp.core.Message;
 import org.springframework.amqp.rabbit.core.RabbitTemplate;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.UUID;
@@ -21,7 +20,7 @@ public class OrderMqProduceService {
         this.rabbitTemplate = rabbitTemplate;
     }
 
-    public void mockOrder(){
+    public void mockFanoutOrder(){
         String orderId = UUID.randomUUID().toString();
         /**
          * Convert a Java object to an Amqp {@link Message} and send it to a specific exchange
@@ -36,6 +35,13 @@ public class OrderMqProduceService {
 
         String exchange = "fanout_order_exchange";
         String routingKey = "";
+        rabbitTemplate.convertAndSend(exchange,routingKey,orderId);
+    }
+
+    public void mockDirectOrder(){
+        String orderId = UUID.randomUUID().toString();
+        String exchange = "direct_order_exchange";
+        String routingKey = "wechat";
         rabbitTemplate.convertAndSend(exchange,routingKey,orderId);
     }
 }

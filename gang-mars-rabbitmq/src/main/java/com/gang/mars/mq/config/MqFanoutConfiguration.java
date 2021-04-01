@@ -9,11 +9,11 @@ import org.springframework.context.annotation.Configuration;
 
 /**
  * @author gang.chen
- * @description MQ交换器与队列配置
+ * @description MQ fanout 模式配置
  * @time 2021/3/31 9:02
  */
 @Configuration
-public class MqConfiguration {
+public class MqFanoutConfiguration {
 
     @Bean
     public FanoutExchange fanoutExchange() {

@@ -1,6 +1,6 @@
 package com.gang.mars.mq;
 
-import com.gang.mars.mq.service.OrderMqProduceService;
+import com.gang.mars.mq.service.produce.OrderMqProduceService;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -17,7 +17,12 @@ public class MqTesting {
     private OrderMqProduceService orderMqService;
 
     @Test
-    void sendMessage(){
-        orderMqService.mockOrder();
+    void sendMessageFanoutMode(){
+        orderMqService.mockFanoutOrder();
+    }
+
+    @Test
+    void sendMessageDirectMode(){
+        orderMqService.mockDirectOrder();
     }
 }
