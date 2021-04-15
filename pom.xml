@@ -10,6 +10,7 @@
         <module>gang-mars-nacos</module>
         <module>gang-mars-interface</module>
         <module>gang-mars-rabbitmq</module>
+        <module>gang-mars-netty</module>
     </modules>
     <parent>
         <groupId>org.springframework.boot</groupId>
@@ -31,6 +32,7 @@
         <spring-boot.version>2.4.3</spring-boot.version>
         <spring-boot-dubbo.version>2.7.7</spring-boot-dubbo.version>
         <dubbo-registry-nacos.version>2.7.7</dubbo-registry-nacos.version>
+        <netty.version>4.1.42.Final</netty.version>
     </properties>
     <dependencyManagement>
         <dependencies>
@@ -58,6 +60,11 @@
                 <version>${dubbo-registry-nacos.version}</version>
             </dependency>
 
+            <dependency>
+                <groupId>io.netty</groupId>
+                <artifactId>netty-all</artifactId>
+                <version>${netty.version}</version>
+            </dependency>
         </dependencies>
     </dependencyManagement>
 
