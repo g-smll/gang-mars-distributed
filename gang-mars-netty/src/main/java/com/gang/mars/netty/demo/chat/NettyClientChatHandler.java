@@ -8,9 +8,9 @@ import io.netty.channel.SimpleChannelInboundHandler;
  * @description
  * @time 2021/4/21 8:51
  */
-public class NettyClientChatHandler extends SimpleChannelInboundHandler {
+public class NettyClientChatHandler extends SimpleChannelInboundHandler<String> {
     @Override
-    protected void channelRead0(ChannelHandlerContext ctx, Object msg) throws Exception {
-
+    protected void channelRead0(ChannelHandlerContext ctx, String msg) throws Exception {
+        System.out.println(msg.trim());
     }
 }

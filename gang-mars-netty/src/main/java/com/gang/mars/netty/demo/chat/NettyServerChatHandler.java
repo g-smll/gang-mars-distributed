@@ -21,12 +21,15 @@ public class NettyServerChatHandler extends SimpleChannelInboundHandler<String> 
 
     SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd");
 
+    //###################################
+    //## 重点 与服务端链接完成时 该方法被激活
+    //##################################
     @Override
     public void channelActive(ChannelHandlerContext ctx) throws Exception {
         Channel channel = ctx.channel();
         channelGroup.writeAndFlush("[客户端]"+channel.remoteAddress()+" 上线" +format.format(new Date())+"\n");
         channelGroup.add(channel);
-        System.out.println("检测到通道......");
+        System.out.println(ctx.channel().remoteAddress() + " 上线了 " + "\n");
     }
 
     @Override

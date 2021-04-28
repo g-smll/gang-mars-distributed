@@ -15,6 +15,11 @@ public class NettyClientHandler extends ChannelInboundHandlerAdapter {
     @Override
     public void channelActive(ChannelHandlerContext ctx) {
         ByteBuf byteBuf = Unpooled.copiedBuffer("客户端输出：Hello server".getBytes(CharsetUtil.UTF_8));
+        /**
+         * (1)问关于上下文写消息,如下方式是否能成功
+         * ctx.writeAndFlush(ByteBuf) -> ctx.writeAndFlush("")
+         * 答复：不能；原因是：客户端机器A，服务端机器B，真实的场景是从A机器->线路->B机器，数据传输只能是二进制数据而非字符
+         * */
         ctx.writeAndFlush(byteBuf);
     }
 

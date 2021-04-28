@@ -26,6 +26,11 @@ public class NettyServerChat {
                         @Override
                         protected void initChannel(SocketChannel ch) throws Exception {
                             ChannelPipeline pipeline = ch.pipeline();
+
+                            //##################################
+                            //## 重点 需要增加解码器与编码器
+                            //##################################
+
                             pipeline.addLast(new NettyServerChatHandler());
                         }
                     });

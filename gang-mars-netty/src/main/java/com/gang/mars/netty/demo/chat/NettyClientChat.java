@@ -29,12 +29,18 @@ public class NettyClientChat  {
 
                             ChannelPipeline pipeline = ch.pipeline();
 
+                            //######################################
+                            //##重点 需要增加编码器与解码器
+                            //######################################
+
                             pipeline.addLast(new NettyClientChatHandler());
                         }
                     });
             ChannelFuture channelFuture = bootstrap.connect("127.0.0.1", 9000).sync();
 
             Channel channel = channelFuture.channel();
+
+            System.out.println("===========" + channel.localAddress() +"===========");
 
             Scanner scanner = new Scanner(System.in);
 
