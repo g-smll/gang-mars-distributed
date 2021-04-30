@@ -5,6 +5,8 @@ import io.netty.channel.*;
 import io.netty.channel.nio.NioEventLoopGroup;
 import io.netty.channel.socket.SocketChannel;
 import io.netty.channel.socket.nio.NioSocketChannel;
+import io.netty.handler.codec.string.StringDecoder;
+import io.netty.handler.codec.string.StringEncoder;
 
 import java.util.Scanner;
 
@@ -32,6 +34,8 @@ public class NettyClientChat  {
                             //######################################
                             //##重点 需要增加编码器与解码器
                             //######################################
+                            pipeline.addLast("decoder",new StringDecoder());
+                            pipeline.addLast("encoder",new StringEncoder());
 
                             pipeline.addLast(new NettyClientChatHandler());
                         }
